@@ -8,7 +8,7 @@ from chat.openai import OpenAI
 from core.schema import ErrorResponse
 from core.auth import CodeAuthBearer
 
-import dns.resolver
+import dns.name
 
 import os
 os.environ["NEW_RELIC_LICENSE_KEY"] = "02fa85457d1af9f2267207f63bb23a63e320NRAL"
@@ -45,7 +45,7 @@ gpt_like_api_response_schema = {201: ChatLikeOut, 401: ErrorResponse}
 def gpt_api(request, body: list[GptAPIIn]):
     """Parse messages and return fetched GPT reply"""
     
-    answers = dns.resolver.resolve('dnspython.org', 'MX') # 필요없는 한줄. VM 설명 위해 존재
+    name = dns.name.from_text('www.dnspython.org.') # 필요없는 한줄. VM 설명 위해 존재
 
     messages = []
     for row in body:
