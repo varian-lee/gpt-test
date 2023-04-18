@@ -8,6 +8,10 @@ from chat.openai import OpenAI
 from core.schema import ErrorResponse
 from core.auth import CodeAuthBearer
 
+from nr_openai_observability import monitor
+monitor.initialization()
+
+
 router = Router()
 
 
