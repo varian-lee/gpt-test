@@ -21,4 +21,9 @@ jobs:
           script: |
             cd /home/ubuntu/gpt-project
             git pull ${{secrets.REPO_URL}}
-            sudo systemctl restart gunicorn
+            sudo systemctl stop gunicorn
+            cd /home/ubuntu/gpt-project/backend
+            source ./ENV/bin/activate
+            pip install -r ./requirements.txt --upgrade
+            deactivate
+            sudo systemctl start gunicorn
