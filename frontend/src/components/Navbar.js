@@ -39,7 +39,7 @@ export default function Navbar () {
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link to="/" className="flex items-center">
-          <span className="self-center text-xl font-bold whitespace-nowrap">logo4</span>
+          <span className="self-center text-xl font-bold whitespace-nowrap">Home</span>
         </Link>
         <Hamburger onClick={handleClickHamburger} />
         <div ref={menuRef} className="hidden w-full md:block md:w-auto" id="navbar-default">

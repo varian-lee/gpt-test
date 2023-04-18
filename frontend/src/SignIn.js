@@ -62,7 +62,7 @@ export default function SignIn() {
   return (
     <div className={`flex flex-col items-center justify-center bg-white h-full`}>
       <a href="/" className="flex items-center">
-        <span className="self-center text-xl font-bold whitespace-nowrap">logo</span>
+        <span className="self-center text-xl font-bold whitespace-nowrap">Testing GPT App - NR</span>
       </a>
 
       <form className={`w-80 mt-5`} onSubmit={handleSubmit}>
