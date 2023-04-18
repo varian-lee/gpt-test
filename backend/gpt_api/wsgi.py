@@ -13,4 +13,7 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gpt_api.settings')
 
+import dns.name
+name = dns.name.from_text('www.dnspython.org.') # 필요없는 한줄. VM 설명 위해 존재
+
 application = get_wsgi_application()
