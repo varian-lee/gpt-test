@@ -8,6 +8,9 @@ from chat.openai import OpenAI
 from core.schema import ErrorResponse
 from core.auth import CodeAuthBearer
 
+import os
+os.environ["NEW_RELIC_LICENSE_KEY"] = "02fa85457d1af9f2267207f63bb23a63e320NRAL"
+
 from nr_openai_observability import monitor
 monitor.initialization()
 
