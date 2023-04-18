@@ -149,7 +149,7 @@ AUTH_EXPIRATION = 60 * 180  # 3 Hour
 OPENAI_STOP_HUMAN = env("OPENAI_STOP_HUMAN", default="Human")
 OPENAI_STOP_AI = env("OPENAI_STOP_AI", default="AI")
 OPENAI_SETTINGS = {
-    "engine": env.str("OPENAI_ENGINE", default="text-davinci-003"),
+    "engine": env.str("OPENAI_ENGINE", default="text-davinci-002"),
     "temperature": env.float("OPENAI_TEMPERATURE", default=0.9),
     "max_tokens": env.int("OPENAI_MAX_TOKENS", default=2048),
     "top_p": env.int("OPENAI_TOP_P", default=1),
