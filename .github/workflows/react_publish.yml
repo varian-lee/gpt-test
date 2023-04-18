@@ -1,0 +1,58 @@
+name: react_publish
+on:
+  push:
+    branches: [master]
+    paths:
+      - frontend/**
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    defaults:
+      run:
+        working-directory: frontend
+    env:
+      CI: false
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install modules
+        run: npm install
+      - name: Build project
+        run: npm run build
+        env:
+          REACT_APP_API_URL:
+      - name: remove build folder
+        # don't run locally
+        if: "!contains(github.event.head_commit.message, 'ci skip')"
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ vars.REMOTE_HOST }}
+          username: ${{ vars.REMOTE_USERNAME }}
+          key: ${{ secrets.REMOTE_SSH_PEM_KEY }}
+          port: ${{ vars.REMOTE_PORT }}
+          working-directory: backend
+          script: |
+            rm -rf /home/ubuntu/gpt-project/frontend/build
+      - name: Deploy build outputs
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ vars.REMOTE_HOST }}
+          username: ${{ vars.REMOTE_USERNAME }}
+          key: ${{ secrets.REMOTE_SSH_PEM_KEY }}
+          port: ${{ vars.REMOTE_PORT }}
+          source: "frontend/build/*"
+          strip_components: 1
+          overwrite: true
+          target: "/home/ubuntu/gpt-project/frontend"
