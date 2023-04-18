@@ -1,7 +1,7 @@
 name: react_publish
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - frontend/**
 

@@ -1,7 +1,7 @@
 name: Django Deploy CD
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - backend/**
 jobs:
