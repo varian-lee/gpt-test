@@ -28,15 +28,15 @@ jobs:
             deactivate
             sudo systemctl start gunicorn
 
-      # This step builds a var with the release tag value to use later
-      - name: Set Release Version from Tag
-        run: echo "RELEASE_VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
-      # This step creates a new Change Tracking Marker
-      - name: New Relic Application Deployment Marker
-        uses: newrelic/deployment-marker-action@v2.2.0
-        with:
-          apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
-          region: "US"
-          guid: ${{ secrets.NEW_RELIC_DEPLOYMENT_ENTITY_GUID_BACKEND }}
-          version: "${{ env.RELEASE_VERSION }}"
-          user: "${{ github.actor }}"
+    #  # This step builds a var with the release tag value to use later
+    #  - name: Set Release Version from Tag
+    #    run: echo "RELEASE_VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
+    #  # This step creates a new Change Tracking Marker
+    #  - name: New Relic Application Deployment Marker
+    #    uses: newrelic/deployment-marker-action@v2.2.0
+    #    with:
+    #      apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
+    #      region: "US"
+    #      guid: ${{ secrets.NEW_RELIC_DEPLOYMENT_ENTITY_GUID_BACKEND }}
+    #      version: "${{ env.RELEASE_VERSION }}"
+    #      user: "${{ github.actor }}"
