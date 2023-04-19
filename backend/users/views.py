@@ -20,3 +20,10 @@ def login(request, user: User):
         return 401, {"message": "Authentication failed"}
     access_token = authenticate(user.username, user.password)
     return 201, {"access_token": access_token}
+
+@router.get("/strange-api", url_name="strange_api")
+def login(request):
+    none_var = None
+    error_prone_val = none_var.whatisthis + 1 
+
+    return "Hello, World!"
