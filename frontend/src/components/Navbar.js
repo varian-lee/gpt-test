@@ -36,7 +36,7 @@ export default function Navbar () {
 
   function handleError() {
     const tempValue = undefined;
-    //const letsMakeError = tempValue.notExsistingVariable[0];
+    const letsMakeError = tempValue.notExsistingVariable[0];
   }
 
   return (
