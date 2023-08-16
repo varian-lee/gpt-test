@@ -212,7 +212,7 @@ function App() {
               )
             ))}
             {!isAuthenticated && (
-              <div className='w-full bg-neutral-300 text-center text-sm mt-5'>사용자 인증이 만료되었습니다. 재로그인해주세요.</div>
+              <div className='w-full bg-neutral-300 text-center text-sm mt-5'>사용자 인증이 만료되었습니다. 재로그인해주세요!</div>
             )}
           </div>
           <div className='mt-auto p-3'>
