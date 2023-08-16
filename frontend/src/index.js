@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import 'video.js/dist/video-js.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import SignIn from "./SignIn";
 import {ProtectedRoute} from "./routers";
+import VideoTest from "./pages/videoTest";
+import TmpTest from "./pages/tmpTest";
+
 
 const router = createBrowserRouter([
   {
@@ -15,8 +20,17 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <SignIn />,
+  },
+  {
+    path: "/test1",
+    element: <VideoTest />,
+  },
+  {
+    path: "/test2",
+    element: <TmpTest />,
   }
-]);
+  ]
+);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

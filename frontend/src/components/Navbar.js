@@ -18,9 +18,25 @@ function Hamburger(props) {
   )
 }
 
-export default function Navbar () {
+export default function Navbar ({currentPageIndex = 0}) {
+
   const navigate = useNavigate();
   const menuRef = React.useRef();
+
+  const navMenus = [
+    {
+      to: "/",
+      text: "Home",
+    },
+    {
+      to: "/test1",
+      text: "Test1"
+    },
+    {
+      to: "/test2",
+      text: "Test2"
+    }
+  ]
 
   function handleLogout() {
     const auth = new Auth();
@@ -32,6 +48,10 @@ export default function Navbar () {
     if (menuRef.current) {
       menuRef.current.classList.toggle('hidden');
     }
+  }
+
+  function getNavMenuClassNames (selected) {
+    return selected ? "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" : "block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
   }
 
   function handleError() {
@@ -56,6 +76,13 @@ export default function Navbar () {
                       onClick={handleError}
               >ErrorTab</button> 
             </li>
+            {navMenus.map((row, idx) => (
+              <li key={`navMenu-${idx}`}>
+                <Link to={row.to}
+                   className={getNavMenuClassNames(idx === currentPageIndex)}
+                   aria-current="page">{row.text}</Link>
+              </li>
+            ))}
             <li>
               <button type={"button"}
                       className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"

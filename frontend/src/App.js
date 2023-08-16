@@ -191,7 +191,7 @@ function App() {
 
   return (
     <div id="container" className='h-full'>
-      <Navbar />
+      <Navbar currentPageIndex={0} />
       <div className="container h-full flex flex-wrap justify-center px-2 pt-5 mx-auto">
         <div className="flex flex-col w-full sm:w-[32rem] lg:w-[36rem] xl:w-2/3 bg-neutral-100 rounded-2xl h-[calc(100%-110px)] md:h-2/3">
           <div ref={containerRef} className='flex flex-col py-8 h-[calc(100%-78px)] overflow-y-auto'>
