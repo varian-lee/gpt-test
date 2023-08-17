@@ -16,8 +16,8 @@ function VideoTest() {
     fluid: true,
     sources: [{
       src: packageJson.custom.media.videoUrl,
-      //type: 'video/mp4',
-      type: 'application/x-mpegURL'
+      type: 'video/mp4',
+      //type: 'application/x-mpegURL'
     }]
   };
 
