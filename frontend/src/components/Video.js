@@ -32,7 +32,7 @@ export const VideoJS = (props) => {
     }
 
     // 기현
-    nrvideo.Core.addTracker(new nrvideo.VideojsTracker(player))
+    //nrvideo.Core.addTracker(new nrvideo.VideojsTracker(player))
   }, [options, videoRef]);
 
   // Dispose the Video.js player when the functional component unmounts
