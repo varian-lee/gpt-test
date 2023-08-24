@@ -43,7 +43,7 @@
   },
   "custom": {
     "media": {
-      "videoUrl": "https://kihyun-temp-bucket.s3.ap-northeast-2.amazonaws.com/pexels-thirdman-5538262+(1080p).mp4"
+      "videoUrl": "https://d3skijnk8nbodu.cloudfront.net/video/sample.m3u8"
     }
   }
 }
