@@ -11,8 +11,8 @@ from core.auth import CodeAuthBearer
 import os
 os.environ["NEW_RELIC_LICENSE_KEY"] = "b35b92bf2359e20e433f6553cbf1976c7f65NRAL"
 
-from nr_openai_observability import monitor
-monitor.initialization()
+#from nr_openai_observability import monitor
+#monitor.initialization()
 
 
 router = Router()
