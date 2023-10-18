@@ -3,7 +3,7 @@
 import os
 import sys
 
-
+# 주석
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gpt_api.settings')
