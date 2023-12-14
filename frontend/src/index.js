@@ -12,6 +12,14 @@ import VideoTest from "./pages/videoTest";
 import TmpTest from "./pages/tmpTest";
 
 
+import { BrowserAgent } from '@newrelic/browser-agent/loaders/browser-agent'
+const options = {
+  init: {distributed_tracing:{enabled:true},privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]}}, // NREUM.init
+  info: {beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"NRJS-9529eb2659afef0b10c",applicationID:"594453929",sa:1}, // NREUM.info
+  loader_config: {accountID:"3778707",trustKey:"3778707",agentID:"594453929",licenseKey:"NRJS-9529eb2659afef0b10c",applicationID:"594453929"} // NREUM.loader_config
+}
+new BrowserAgent(options)
+
 const router = createBrowserRouter([
   {
     path: "/",
