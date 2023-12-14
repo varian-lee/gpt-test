@@ -54,6 +54,9 @@ function App() {
     }
     setMessage('loading', false, tempMessageId, true);
 
+    newrelic.setUserId('user-1234-v1.0')
+    newrelic.setCustomAttribute('customValue', 'very-custom');
+
     const req = new Request(`${process.env.REACT_APP_API_URL}/api/gpt`, options)
     fetch(req)
       .then(response => {
