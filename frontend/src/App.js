@@ -54,8 +54,10 @@ function App() {
     }
     setMessage('loading', false, tempMessageId, true);
 
-    window.newrelic.setUserId('user-1234-v1.0')
-    window.newrelic.setCustomAttribute('customValue', 'very-custom');
+
+    window.newrelic.interaction()
+    .setAttribute('myUserName', 'myUserName1')
+    .setAttribute('myUserId', 'myuserId1');
 
     const req = new Request(`${process.env.REACT_APP_API_URL}/api/gpt`, options)
     fetch(req)
@@ -138,6 +140,12 @@ function App() {
     if (!isAuthenticated) {
       return;
     }
+    window.newrelic.setUserId('user-1234-v1.0.2');
+    window.newrelic.setCustomAttribute('customValue', 'very-custom2');
+    window.newrelic.interaction()
+    .setAttribute('myUserName', 'myUserName2')
+    .setAttribute('myUserId', 'myuserId2');
+
     const elem = e.currentTarget;
     const chatId = elem.parentElement.dataset.chatid;
     messages.find(row => row.chatId === chatId && !row.like);

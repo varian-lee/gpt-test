@@ -32,7 +32,13 @@ export default function SignIn() {
     if (!username || !password) {
       window.alert("ID 혹은 PW를 입력해주세요");
       return;
-    }
+    }   
+    window.newrelic.setUserId('user-1234-v1.0.3');
+    window.newrelic.setCustomAttribute('customValue', 'very-custom3');
+    window.newrelic.interaction()
+    .setAttribute('myUserName', 'myUserName3')
+    .setAttribute('myUserId', 'myuserId3');
+
     const url = `${process.env.REACT_APP_API_URL}/api/login`;
     const options = {
       method: 'POST',
