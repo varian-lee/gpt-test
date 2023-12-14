@@ -5,7 +5,6 @@ import {Auth, generateId, useQueue} from "./helpers";
 import MessageInput from "./components/MessageInput";
 import PulseDotsLoader from "./components/PulseDotsLoader";
 
-require('newrelic');
 
 function LikeButton({liked, ...props}) {
 
@@ -55,8 +54,8 @@ function App() {
     }
     setMessage('loading', false, tempMessageId, true);
 
-    newrelic.setUserId('user-1234-v1.0')
-    newrelic.setCustomAttribute('customValue', 'very-custom');
+    window.newrelic.setUserId('user-1234-v1.0')
+    window.newrelic.setCustomAttribute('customValue', 'very-custom');
 
     const req = new Request(`${process.env.REACT_APP_API_URL}/api/gpt`, options)
     fetch(req)
