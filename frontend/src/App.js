@@ -5,6 +5,7 @@ import {Auth, generateId, useQueue} from "./helpers";
 import MessageInput from "./components/MessageInput";
 import PulseDotsLoader from "./components/PulseDotsLoader";
 
+require('newrelic');
 
 function LikeButton({liked, ...props}) {
 
